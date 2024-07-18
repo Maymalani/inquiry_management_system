@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const [allStatus, setAllStatus] = useState();
     let authorizationToken = token;
 
-    const api = 'https://ims-backend-emui.onrender.com';
+    const api = 'http://localhost:4000';
 
     const findAdmin = async () => {
         const response = await fetch(`${api}/auth/admin`, {

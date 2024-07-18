@@ -181,7 +181,7 @@ const Sidenav = ({ expanded, setExpanded }) => {
             <NavLink to={"/"} className={`text-2xl text-green-600 font-semibold ${expanded ? "block" : "hidden"}`}>Enquiry System</NavLink>
             <i className="fa-solid fa-bars cursor-pointer text-green-600" onClick={() => setExpanded(!expanded)}></i>
           </div>
-          <NavLink to={"/profile"} title="Profile" className={`h-16 flex ${expanded ? "justify-start px-3" : "justify-center"} items-center gap-x-3 border-b-[1px]`}>
+          <NavLink to={"/profile"} onClick={() => setExpanded(!expanded)} title="Profile" className={`h-16 flex ${expanded ? "justify-start px-3" : "justify-center"} items-center gap-x-3 border-b-[1px]`}>
             <img src={user.image ? `${api}/images/${user.image}` : profile} className={`w-8 h-8 rounded-full`} alt="" />
             <p className={`text-xl capitalize tracking-wide font-semibold pr-0 ${expanded ? "block" : "hidden"}`}>{`${user.admin_name}`}</p>
           </NavLink>

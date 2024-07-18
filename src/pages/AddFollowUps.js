@@ -62,7 +62,7 @@ const AddFollowUps = () => {
                         <h1 className='text-center text-2xl font-bold text-green-600 py-3'>Add Follow Ups</h1>
                         <input
                             autoFocus
-                            className="border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
+                            className="w-full border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
                             placeholder='Reason'
                             type="text"
                             name='reason'
@@ -70,7 +70,7 @@ const AddFollowUps = () => {
                             onChange={handleChange}
                         />
                         <input
-                            className="border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
+                            className="w-full border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
                             placeholder='Date'
                             type="date"
                             name='date'
@@ -78,7 +78,7 @@ const AddFollowUps = () => {
                             onChange={handleChange}
                         />
                         <input
-                            className="border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
+                            className="w-full border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3"
                             placeholder='Follow Ups By'
                             type="text"
                             name='by'
