@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [token, setToken] = useState(localStorage.getItem('tokenIms'));
     const [user, setUser] = useState("")
     const [allUser, setAllUser] = useState();
     const [Branch, setBranch] = useState();
@@ -48,13 +48,12 @@ export const AuthProvider = ({ children }) => {
 
     const storeTokenInLs = (token) => {
         setToken(token);
-        return localStorage.setItem('token', token);
+        return localStorage.setItem('tokenIms', token);
     }
 
     const Logout = () => {
         setToken("");
-        localStorage.removeItem('token');
-        localStorage.removeItem('admin')
+        localStorage.removeItem('tokenIms');
     }
 
     let isLoggedIn = !!token;
