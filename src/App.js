@@ -20,6 +20,7 @@ import AddRoles from "./pages/AddRoles";
 import ViewRoles from "./pages/ViewRoles";
 import ViewStatus from "./pages/ViewStatus";
 import AddStatus from "./pages/AddStatus";
+import InquiryStatus from "./pages/InquiryStatus";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
                   <Route path="/view-role" element={<ViewRoles />} />
                   <Route path="/add-status" element={<AddStatus />} />
                   <Route path="/view-status" element={<ViewStatus />} />
+                  <Route path="/inquiry/:status" element={<InquiryStatus />} />
                 </Routes>
               </div>
             </div>

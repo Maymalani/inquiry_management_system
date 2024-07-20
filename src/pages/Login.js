@@ -10,7 +10,7 @@ const Login = () => {
   };
 
   const [inputData, setinputData] = useState(inputObj);
-  const { storeTokenInLs, api ,findAdmin} = useAuth();
+  const { storeTokenInLs, api, findAdmin } = useAuth();
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState(true)
 
@@ -41,10 +41,11 @@ const Login = () => {
         setLoading(false);
         findAdmin();
       } else {
-        setLoading(false)
+        setLoading(false);
       }
     } catch (error) {
       console.log("LOgin Error " + error);
+      setLoading(false)
     }
   }
 

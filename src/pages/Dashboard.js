@@ -1,30 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../store/auth'
 
 const Dashboard = () => {
+
+  const { allInquiry, getAllInquiry, activeInquiry, getActiveInquiry, pendingInquiry, getPendingInquiry, declinedInquiry, setDeclinedInquiry, closedInquiry, getClosedInquiry } = useAuth();
 
   const card = [
     {
       id: 1,
-      bgColor: "primary",
-      text: "All Inquiries"
+      count: activeInquiry?.length,
+      bgColor: "success",
+      text: "Active Inquiries",
+      link: "/inquiry/Active"
     },
     {
       id: 2,
-      bgColor: "success",
-      text: "Pending Inquiries"
+      count: pendingInquiry?.length,
+      bgColor: "warning",
+      text: "Pending Inquiries",
+      link: "/inquiry/Pending"
     },
     {
       id: 3,
-      bgColor: "warning",
-      text: "Resolved Inquiries"
+      count: declinedInquiry?.length,
+      bgColor: "dark",
+      text: "Declined Inquiries",
+      link: '/inquiry/Declined'
     },
     {
-      id: 4,
+      id: 3,
+      count: closedInquiry?.length,
       bgColor: "danger",
-      text: "Closed Inquiries"
+      text: "Closed Inquiries",
+      link: '/inquiry/Closed'
     },
   ]
+
+  useEffect(() => {
+    getAllInquiry();
+    getActiveInquiry();
+    getPendingInquiry();
+    getClosedInquiry();
+  }, []);
+
   return (
     <>
       <div className='flex justify-between items-center py-3 flex-wrap w-full mt-16'>
@@ -34,20 +53,18 @@ const Dashboard = () => {
         </div>
       </div>
       <section className="text-gray-600 body-font w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <NavLink to={"/view-inquiry"} className={`flex items-center justify-between text-white p-3 bg-primary rounded-md`}>
+            <p className='text-white text-sm sm:text-base md:text-xl lg:text-2xl'>All Inquiry</p>
+            <i className="fa-solid fa-arrow-right"></i>
+          </NavLink>
           {
             card.map((val, ind) => {
               return (
-                <div className="text-white p-1" key={val.id}>
-                  <div>
-                    <div className={`bg-${val.bgColor} px-2 py-4 rounded-md`}>
-                      <h2 className='text-4xl text-white'>150</h2>
-                      <p className='text-white'>{val.text}</p>
-                    </div>
-                    <hr className='text-gray-500' />
-                    <div className={`bg-${val.bgColor} text-center p-2 rounded-md`}>More Info</div>
-                  </div>
-                </div>
+                <NavLink to={val.link} className={`flex items-center justify-between text-white p-3 bg-${val.bgColor} rounded-md`} key={val.id}>
+                  <p className='text-white text-sm sm:text-base md:text-xl lg:text-xl'>{val.text}</p>
+                  <i className="fa-solid fa-arrow-right"></i>
+                </NavLink>
               )
             })
           }

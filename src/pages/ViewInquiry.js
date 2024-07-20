@@ -29,8 +29,6 @@ const ViewInquiry = () => {
         }
     };
 
-    console.log(updateInquiry);
-
     const handleChange = (e) => {
         setUpdateInquiry({
             ...updateInquiry, [e.target.name]: e.target.value
@@ -97,9 +95,9 @@ const ViewInquiry = () => {
     return (
         <>
             <div className='flex justify-between items-center py-3 flex-wrap w-full mt-16'>
-                <h1 className='text-sm md:text-lg lg:text-xl font-semibold'>View Inquiry</h1>
+                <h1 className='text-sm md:text-lg lg:text-xl font-semibold'>All Inquiry</h1>
                 <div>
-                    <p className="text-sm"><NavLink to={"/"} className='text-green-600'>Home</NavLink> / View Inquiry</p>
+                    <p className="text-sm"><NavLink to={"/"} className='text-green-600'>Home</NavLink> / All Inquiry</p>
                 </div>
             </div>
             <section className='py-3'>
@@ -129,7 +127,7 @@ const ViewInquiry = () => {
                                                             <td>{val.name}</td>
                                                             <td>
                                                                 <div className='flex items-center gap-2'>
-                                                                    <p className={`w-2 h-2 ${val.status.name === "Active" ? "bg-green-600" : val.status.name === "Pending" ? "bg-yellow-600" : val.status.name === "Declined" ? "bg-pink-500" : "bg-red-600"} rounded-full`}></p>{val.status.name}
+                                                                    <p className={`w-2 h-2 ${val.status.name === "Active" ? "bg-green-600" : val.status.name === "Pending" ? "bg-yellow-600" : val.status.name === "Declined" ? "bg-pink-500" :  "bg-red-600"} rounded-full`}></p>{val.status.name}
                                                                 </div>
                                                             </td>
                                                             <td>{val.branch.name}</td>

@@ -11,6 +11,10 @@ export const AuthProvider = ({ children }) => {
     const [allCourse, setAllCourse] = useState();
     const [allFollowUps, setAllFollowUps] = useState();
     const [allInquiry, setAllInquiry] = useState();
+    const [activeInquiry, setActiveInquiry] = useState();
+    const [pendingInquiry, setPendingInquiry] = useState();
+    const [declinedInquiry, setDeclinedInquiry] = useState();
+    const [closedInquiry, setClosedInquiry] = useState();
     const [allReferences, setAllReferences] = useState();
     const [allRole, setAllRole] = useState();
     const [allStatus, setAllStatus] = useState();
@@ -114,6 +118,34 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const getActiveInquiry = () => {
+        const active = allInquiry?.filter((val) => {
+            return val.status.name === "Active"
+        });
+        setActiveInquiry(active);
+    }
+
+    const getPendingInquiry = () => {
+        const pending = allInquiry?.filter((val) => {
+            return val.status.name === "Pending"
+        });
+        setPendingInquiry(pending);
+    }
+
+    const getDeclinedInquiry = () => {
+        const declined = allInquiry?.filter((val) => {
+            return val.status.name === "Declined"
+        });
+        setDeclinedInquiry(declined);
+    }
+
+    const getClosedInquiry = () => {
+        const closed = allInquiry?.filter((val) => {
+            return val.status.name === "Closed"
+        });
+        setClosedInquiry(closed);
+    }
+
     const getAllReferences = async () => {
         const response = await fetch(`${api}/ref/view_reference`, {
             method: "GET",
@@ -158,10 +190,11 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         findAdmin();
+        getAllInquiry();
     }, [token]);
 
     return (
-        <AuthContext.Provider value={{ storeTokenInLs, isLoggedIn, Logout, api, authorizationToken, user, findAdmin, getAllUser, allUser, getAllBranch, Branch, getAllCourse, allCourse, getAllFollowUps, allFollowUps, getAllInquiry, allInquiry, getAllReferences, allReferences, getAllRole, allRole, getAllStatus, allStatus }}>
+        <AuthContext.Provider value={{ storeTokenInLs, isLoggedIn, Logout, api, authorizationToken, user, findAdmin, getAllUser, allUser, getAllBranch, Branch, getAllCourse, allCourse, getAllFollowUps, allFollowUps, getAllInquiry, allInquiry, getAllReferences, allReferences, getAllRole, allRole, getAllStatus, allStatus, getActiveInquiry, activeInquiry, getPendingInquiry, pendingInquiry, getDeclinedInquiry, declinedInquiry, getClosedInquiry, closedInquiry }}>
             {children}
         </AuthContext.Provider>
     )
