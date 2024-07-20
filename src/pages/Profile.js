@@ -75,7 +75,7 @@ const Profile = () => {
     }
 
     const updatePassword = async () => {
-        if (password === cnfPassword) {
+        if (password !== "" && cnfPassword !== "" && password === cnfPassword) {
             const response = await fetch(`${api}/auth/admin_psw_change/${user._id}`, {
                 method: "POST",
                 headers: {
