@@ -90,7 +90,7 @@ const Profile = () => {
                 setPswUpdateShow(false)
             }
         } else {
-            window.alert("Both Password Should be same.")
+            window.alert("Both Password Should be same and not empty.")
         }
     }
 
