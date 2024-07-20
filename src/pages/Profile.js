@@ -125,8 +125,8 @@ const Profile = () => {
             </section>
             <section className='flex gap-3 flex-wrap mb-3'>
                 <button className='bg-green-600 text-white px-3 py-1 rounded-md' onClick={() => { setShow(true); setUpdateData(user) }}><i className="fa-regular fa-pen-to-square"></i> Edit Profile</button>
-                <button className='bg-red-600 text-white px-3 py-1 rounded-md' onClick={() => { navigate("/"); Logout() }}><i className="fa-solid fa-power-off"></i> Logout </button>
                 <button className='bg-purple-600 text-white px-3 py-1 rounded-md' onClick={() => setPswUpdateShow(true)}><i className="fa-solid fa-key"></i> Change Password</button>
+                <button className='bg-red-600 text-white px-3 py-1 rounded-md' onClick={() => { navigate("/"); Logout() }}><i className="fa-solid fa-power-off"></i> Logout </button>
             </section>
             <Modal show={show} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
