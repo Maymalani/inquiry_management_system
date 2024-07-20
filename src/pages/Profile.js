@@ -119,8 +119,6 @@ const Profile = () => {
                     <p className='my-2'><span className='font-medium text-lg'>Email</span> : {user.admin_email}</p>
                     <p><span className='font-medium text-lg'>Password</span> : <span>.......</span></p>
                     <p className='my-2'><span className='font-medium text-lg'>Mobile</span> : {user.contact}</p>
-                    <p><span className='font-medium text-lg'>Role</span> : {user.role ? user.role : "Not Assigned"}</p>
-                    <p className='my-2'><span className='font-medium text-lg'>Branch</span> : {user.branch ? user.branch : "Not Assigned"}</p>
                 </div>
             </section>
             <section className='flex gap-3 flex-wrap mb-3'>
