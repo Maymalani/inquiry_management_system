@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../store/auth';
 
 const AddFollowUps = () => {
 
-    const { api, authorizationToken } = useAuth();
+    const { api, authorizationToken, allInquiry, getAllInquiry } = useAuth();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
     const followUpObj = {
         reason: "",
         date: "",
-        by: ""
+        by: "",
+        inquiry: ""
     }
 
     const [followUps, setFollowUps] = useState(followUpObj);
@@ -48,6 +49,11 @@ const AddFollowUps = () => {
             setLoading(false)
         }
     }
+
+    useEffect(() => {
+        getAllInquiry();
+    }, []);
+
     return (
         <>
             <div className='flex justify-between items-center py-3 flex-wrap w-full mt-16'>
@@ -85,6 +91,17 @@ const AddFollowUps = () => {
                             value={followUps.by}
                             onChange={handleChange}
                         />
+                        <label className='mb-2'>Select Inquiry</label>
+                        <select className="w-full border-[1px] p-2 rounded-md border-gray-300 outline-none mb-3" onChange={handleChange} name='inquiry' value={followUps.inquiry}>
+                            <option>Select Inquiry</option>
+                            {
+                                allInquiry?.map((val, ind) => {
+                                    return (
+                                        <option value={val._id} key={ind}>{val.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                         <input type="submit" value={loading ? "Please Wait" : "Add Follow Ups"} disabled={loading} className='mb-3 w-full sm:w-1/2 m-auto bg-green-600 text-white capitalize px-2 py-1 rounded-md' />
                     </form>
                 </div>
