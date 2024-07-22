@@ -97,8 +97,8 @@ const ViewRoles = () => {
                                                             <td>{val.name}</td>
                                                             <td>
                                                                 <div className='flex gap-x-2 items-center'>
-                                                                    <i className="fa-regular fa-pen-to-square pr-3 text-green-600 cursor-pointer" title='Update Branch' onClick={() => update(val._id)}></i>
-                                                                    <i className="fa-solid fa-trash-can hover:text-red-600 cursor-pointer" title='Delete Branch' onClick={() => deleteRoles(val._id)}></i>
+                                                                    <i className="fa-regular fa-pen-to-square pr-3 text-green-600 cursor-pointer" title='Update Role' onClick={() => update(val._id)}></i>
+                                                                    <i className="fa-solid fa-trash-can hover:text-red-600 cursor-pointer" title='Delete Role' onClick={() => deleteRoles(val._id)}></i>
                                                                 </div>
                                                             </td>
                                                         </tr>
